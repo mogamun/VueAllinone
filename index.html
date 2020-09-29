@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{ stringData }}
+        <div ref="div"></div>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    stringData: 'Hello Vue!'
+                }
+            },
+            methods: {
+
+            },
+            beforeCreate() {
+                console.log('beforeCreate');
+            },
+            created() {
+                console.log('created');
+            },
+            beforeMount() {
+                console.log('beforeMount');
+            },
+            mounted() {
+                this.$refs.div.innerHTML = this.stringData;
+                console.log(this.$refs.div.innerHTML);
+                console.log('mounted');
+            },
+            beforeUpdate() {
+                console.log('beforeUpdate');
+            },
+            updated() {
+                console.log('updated');
+            },
+            beforeDestroy() {
+                console.log('beforeDestroy');
+            },
+            destroyed() {
+                console.log('destroyed');
+            },
+        })
+    </script>
+</body>
+
+</html>

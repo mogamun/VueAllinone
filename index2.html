@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div>{{ stringData }}</div>
+        <div v-html="stringData">{{ stringData }}</div>
+        <div>{{ number.toFixed(1) }}</div>
+        <div ref="div"></div>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    stringData: 'Hello Vue!<br/> Good Jop',
+                    number: 2.3342415
+                }
+            },
+            methods: {
+                mathFunc() {
+                    this.number.toFixed(1);
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>
